@@ -5,8 +5,12 @@ import Darwin
  * Days 3 and 4
  */
 
-
 // Day 3
+
+// range operators ... can be used to create a range between one value and a final value
+let range1 = 1...15
+// range operators can also use a ..< to exclude the final value
+let range2 = 1..<15
 
 
 // Day 4
