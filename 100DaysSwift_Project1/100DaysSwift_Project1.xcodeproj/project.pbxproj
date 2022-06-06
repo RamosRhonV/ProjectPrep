@@ -105,8 +105,7 @@
 				02BCC18E284E738300D0EA5C /* nssl0033.jpg */,
 				02BCC18F284E738300D0EA5C /* nssl0034.jpg */,
 			);
-			name = Content;
-			path = "../../../../Downloads/HackingWithSwift-main/Classic/project1-files/Content";
+			path = Content;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

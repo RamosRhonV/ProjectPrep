@@ -16,6 +16,9 @@ class ViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = "Storm Viewer"
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
         // assigns value from FileManager.default into constant fm
         // allows the program to work with the filesystem
         let fm = FileManager.default
@@ -37,6 +40,8 @@ class ViewController: UITableViewController {
                 pictures.append(item)
             }
         }
+        
+        pictures = pictures.sorted()
         
         // prints the names of the pictures
         print(pictures)
@@ -69,6 +74,7 @@ class ViewController: UITableViewController {
             
             // sets selected image to the name of the filename in the pictures array
             vc.selectedImage = pictures[indexPath.row]
+            vc.title = "Picture \(indexPath.row + 1) of \(pictures.count)"
             
             // pushes the "Detail" into the navigation controller
             navigationController?.pushViewController(vc, animated: true)
