@@ -2,7 +2,7 @@ import UIKit
 import Darwin
 
 /* 100 Days of Swift
- * Days 1 through 12
+ * Days 1 and 2
  */
 
 // Day 1
@@ -28,7 +28,7 @@ var population = 8_000_000 // this value counts as eight million
 var str2 = """
 This is a \
 multi-line \
-string. \
+string. 
 """ // each backslash is a line break in this variable
 
 // doubles are variables that can hold decimal values
