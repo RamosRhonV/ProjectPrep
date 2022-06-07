@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     var countries = [String]()
     var correctAnswer = 0
     var score = 0
+    var questionsAsked = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,29 +45,37 @@ class ViewController: UIViewController {
         button3.setImage(UIImage(named: countries[2]), for: .normal)
         
         correctAnswer = Int.random(in: 0...2)
-        title = countries[correctAnswer].uppercased()
+        title = countries[correctAnswer].uppercased() + " || " + "Score: \(score)"
     }
     
     // this function disposes any resources that can be recreated
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        print("something")
     }
 
     @IBAction func buttonTapped(_ sender: UIButton) {
         var title: String
         if sender.tag == correctAnswer {
-            title = "Correct"
+            title = "Correct!"
             score += 1
         } else {
-            title = "Wrong"
+            title = "Wrong!" + " " + "That's the flag of \(countries[sender.tag].capitalized)!"
             score -= 1
         }
     
+        questionsAsked += 1
         
-        let ac = UIAlertController(title: title, message: "Your score is \(score).", preferredStyle: .alert)
-        ac.addAction(UIAlertAction(title: "Continue", style: .default, handler: askQuestion))
-        present(ac, animated: true)
+        if questionsAsked < 10 {
+            let ac = UIAlertController(title: title, message: "Your score is \(score).", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "Continue", style: .default, handler: askQuestion))
+            present(ac, animated: true)
+        } else {
+            let ac = UIAlertController(title: title, message: "You guess 10 times! Your final score is \(score).", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "Continue", style: .default, handler: askQuestion))
+            present(ac, animated: true)
+            questionsAsked = 0
+            score = 0
+        }
     }
 }
 
