@@ -50,6 +50,7 @@ class ViewController: UIViewController {
     // this function disposes any resources that can be recreated
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+        print("something")
     }
 
     @IBAction func buttonTapped(_ sender: UIButton) {
